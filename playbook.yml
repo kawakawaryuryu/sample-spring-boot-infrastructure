@@ -1,0 +1,28 @@
+---
+- hosts: webserver
+  remote_user: vagrant
+  become: yes
+
+  tasks:
+    - name: put nginx.repo
+      template:
+        src: nginx.repo.j2
+        dest: /etc/yum.repos.d/nginx.repo
+    - name: install nginx
+      yum:
+        name: nginx
+        state: latest
+    - name: write nginx.conf
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+        enabled: yes
+
