@@ -4,6 +4,10 @@
   become: yes
 
   tasks:
+    - name: install git
+      yum:
+        name: git
+        state: latest
     - name: put nginx.repo
       template:
         src: nginx.repo.j2
