@@ -1,0 +1,14 @@
+---
+- hosts: webserver
+  remote_user: vagrant
+  become: yes
+
+  vars:
+    ansistrano_deploy_to: /var/www/sample-spring-boot
+    ansistrano_keep_releases: 5
+    ansistrano_deploy_via: git
+    ansistrano_git_repo: git@github.com:kawakawaryuryu/sample-spring-boot.git
+    ansistrano_git_branch: master
+    ansistrano_git_identity_key_path: ~/.ssh/id_rsa
+  roles:
+    - carlosbuenosvinos.ansistrano-deploy
