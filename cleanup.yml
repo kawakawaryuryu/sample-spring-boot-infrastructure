@@ -1,0 +1,7 @@
+---
+- name: delete tmp directory
+  file:
+    path: tmp
+    state: absent
+  delegate_to: localhost
+  become_user: "{{ local_user }}"

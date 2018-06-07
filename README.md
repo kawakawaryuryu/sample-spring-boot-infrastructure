@@ -4,3 +4,9 @@
 ```bash
 $ ansible-playbook -i local playbook.yml
 ```
+
+## デプロイ
+<user>にローカルで実行するユーザを入れる
+```bash
+$ ansible-playbook -i local deploy --extra-vars "local_user=<user>"
+```

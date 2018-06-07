@@ -1,0 +1,14 @@
+---
+- block:
+  - name: clone project
+    git:
+      repo: git@github.com:kawakawaryuryu/sample-spring-boot.git
+      dest: tmp
+  - name: build jar
+    command: mvn clean package
+    args:
+      chdir: tmp
+
+  delegate_to: localhost
+  run_once: true
+  become_user: "{{ local_user }}"
