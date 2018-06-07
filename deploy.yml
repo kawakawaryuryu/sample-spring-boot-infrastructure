@@ -4,11 +4,12 @@
   become: yes
 
   vars:
+    custom_task_dir: custom_task
     ansistrano_deploy_from: tmp/target/sample-spring-boot-1.0-SNAPSHOT.jar
     ansistrano_deploy_to: /var/www/sample-spring-boot
     ansistrano_keep_releases: 5
     ansistrano_deploy_via: rsync
-    ansistrano_before_update_code_tasks_file: create-jar.yml
-    ansistrano_after_cleanup_tasks_file: cleanup.yml
+    ansistrano_before_update_code_tasks_file: "{{ custom_task_dir }}/create-jar.yml"
+    ansistrano_after_cleanup_tasks_file: "{{ custom_task_dir }}/cleanup.yml"
   roles:
     - carlosbuenosvinos.ansistrano-deploy
