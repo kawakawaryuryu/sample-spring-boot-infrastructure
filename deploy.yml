@@ -21,3 +21,12 @@
         name: nginx
         state: restarted
         enabled: yes
+    - name: daemon-reload sample-spring-boot
+      systemd:
+        name: sample-spring-boot
+        daemon-reload: yes
+    - name: restart sample-spring-boot
+      service:
+        name: sample-spring-boot
+        state: restarted
+        enabled: yes

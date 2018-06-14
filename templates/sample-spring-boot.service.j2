@@ -1,0 +1,13 @@
+[Unit]
+Description=sample spring boot
+After=nginx.service
+
+[Service]
+Type=simple
+ExecStart=/bin/java -jar /var/www/sample-spring-boot/current/sample-spring-boot-1.0-SNAPSHOT.jar
+ExecReload=/bin/kill -s SIGHUP $MAINPID
+Restart=on-failure
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
