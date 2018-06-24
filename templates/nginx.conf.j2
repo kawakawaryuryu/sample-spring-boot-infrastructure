@@ -22,7 +22,7 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /var/log/nginx//access.log  main;
+    access_log  /var/log/nginx/access.log  main;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -40,8 +40,9 @@ http {
 
         #access_log  logs/host.access.log  main;
 
-        location / {
+        location /app/ {
             proxy_pass  http://localhost:8080;
+            proxy_redirect off;
         }
 
         #error_page  404              /404.html;

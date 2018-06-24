@@ -31,3 +31,17 @@
   notify:
     - daemon-reload sample-spring-boot
     - restart sample-spring-boot
+
+- name: install semanage
+  yum:
+    name: policycoreutils-python
+    state: latest
+- name: install setools
+  yum:
+    name: setools
+    state: latest
+- name: enable httpd_can_network_connect
+  seboolean:
+    name: httpd_can_network_connect
+    state: yes
+    persistent: yes
