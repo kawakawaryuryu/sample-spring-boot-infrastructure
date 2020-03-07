@@ -6,7 +6,7 @@
   vars:
     ansistrano_deploy_to: /var/www/sample-spring-boot
   roles:
-    - ansistrano.deploy
+    - ansistrano.rollback
 
   tasks:
     - name: trigger to restart jar
