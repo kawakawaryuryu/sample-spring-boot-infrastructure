@@ -13,7 +13,7 @@
     ansistrano_before_update_code_tasks_file: "{{ custom_task_dir }}/create-jar.yml"
     ansistrano_after_cleanup_tasks_file: "{{ custom_task_dir }}/cleanup.yml"
   roles:
-    - carlosbuenosvinos.ansistrano-deploy
+    - ansistrano.deploy
 
   handlers:
     - name: restart nginx
