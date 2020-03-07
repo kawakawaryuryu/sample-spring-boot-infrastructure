@@ -1,4 +1,5 @@
 # sample-spring-boot-infrastructure
+[サンプルアプリケーション](https://github.com/kawakawaryuryu/sample-spring-boot)をgit cloneしてmvn packageにてjarを生成後、rsyncでデプロイするサンプルです。
 
 ## デプロイ(+環境構築)
 `<user>`にローカルで実行するユーザを入れる
