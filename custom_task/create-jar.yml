@@ -8,6 +8,8 @@
     command: mvn clean package
     args:
       chdir: tmp
+    notify:
+      - restart sample-spring-boot
 
   delegate_to: localhost
   run_once: true
